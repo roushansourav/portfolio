@@ -16,49 +16,49 @@ export default function(pathname=''){
 		case '/sorting':
 			route=[
 				{key:'/home',label:'Home'},
-				{key:'/bubble',label:'Bubble'},
-				{key:'/insertion',label:'Insertion'},
-				{key:'/selection',label:'Selection'},
-				{key:'/merge',label:'Merge'},
-				{key:'/quick',label:'Quick'},
-				{key:'/shell',label:'Shell'},
+				{key:pathname+'/bubble',label:'Bubble'},
+				{key:pathname+'/insertion',label:'Insertion'},
+				{key:pathname+'/selection',label:'Selection'},
+				{key:pathname+'/merge',label:'Merge'},
+				{key:pathname+'/quick',label:'Quick'},
+				{key:pathname+'/shell',label:'Shell'},
 			];
 			break;
 		case '/datastructure':
 			route=[
 				{key:'/home',label:'Home'},
-				{key:'/array',label:'Array'},
-				{key:'/object',label:'Object'},
-				{key:'/stack',label:'Stack'},
-				{key:'/queue',label:'Queue'},
-				{key:'/priortyqueue',label:'Priority Queue'},
-				{key:'/circularqueue',label:'Circular Queue'},
+				{key:pathname+'/array',label:'Array'},
+				{key:pathname+'/object',label:'Object'},
+				{key:pathname+'/stack',label:'Stack'},
+				{key:pathname+'/queue',label:'Queue'},
+				{key:pathname+'/priortyqueue',label:'Priority Queue'},
+				{key:pathname+'/circularqueue',label:'Circular Queue'},
 			];
 			break;
 		case '/graph':
 			route=[
 				{key:'/home',label:'Home'},
-				{key:'/list',label:'list'},
-				{key:'/matrix',label:'Adjacency Matrix'},
+				{key:pathname+'/list',label:'list'},
+				{key:pathname+'/matrix',label:'Adjacency Matrix'},
 			];
 			break;
 		case '/tools':
 			route=[
 				{key:'/home',label:'Home'},
-				{key:'/recursion',label:'Recursion'},
-				{key:'/swap',label:'Swap'},
-				{key:'/maparray',label:'Map Array'},
-				{key:'/filterarray',label:'Filter Array'},
-				{key:'/merge',label:'Merging of Array'}
+				{key:pathname+'/recursion',label:'Recursion'},
+				{key:pathname+'/swap',label:'Swap'},
+				{key:pathname+'/maparray',label:'Map Array'},
+				{key:pathname+'/filterarray',label:'Filter Array'},
+				{key:pathname+'/merge',label:'Merging of Array'}
 			];
 			break;
 		case '/mathematics':
 			route=[
 				{key:'/home',label:'Home'},
-				{key:'/linearAlgebra',label:'Linear Algebra'},
-				{key:'/probability',label:'Probability'},
-				{key:'/statistics',label:'Statistics'},
-				{key:'/combinatronics',label:'Combinatronics'},
+				{key:pathname+'/linearAlgebra',label:'Linear Algebra'},
+				{key:pathname+'/probability',label:'Probability'},
+				{key:pathname+'/statistics',label:'Statistics'},
+				{key:pathname+'/combinatronics',label:'Combinatronics'},
 			];
 			break;
 			default:

@@ -6,35 +6,62 @@ import Graph from './graph';
 import Tools from './tools';
 import Mathematics from './mathematics';
 import DataStructure from './datastructure';
-import Navbar from './Navbar';
 import routeIndex from '../route';
+import Bubble from './sorting/Bubble';
+import Selection from './sorting/Selection';
+import Insertion from './sorting/Insertion';
+import Merge from './sorting/Merge';
+import Quick from './sorting/Quick';
+import Shell from './sorting/Shell';
+import SideNav from './navigation/Sidenav';
+import NavBar from './Navbar';
 
-function App(){
+function Home(){
+	const [open,setOpen]=React.useState(false);
 	const location=useLocation();
 	return <Grid>	
-			<Navbar routeIndex={routeIndex(location.pathname)}/>
-			<h1>Hi I am Roushan Sourav</h1>	
+		<NavBar open={open} setOpen={setOpen}/>	
+		 {open && <SideNav links={routeIndex(location.pathname)} open={open} setOpen={setOpen}/>}	
+		 	
 			<Switch>
 				<Route exact path='/home'>
 					<Redirect to='/'/>
-				</Route> 
+				</Route>
 				<Route exact path='/sorting'>
-				<Sorting />
+					<Sorting />
 				</Route>
 				<Route exact path='/graph'>
 					<Graph/>
 				</Route>
 				<Route exact path='/mathematics'>
-				<Mathematics/>
+					<Mathematics/>
 				</Route>
 				<Route exact path='/datastructures'>
-				<DataStructure/>
+					<DataStructure/>
 				</Route>
 				<Route exact path ='/tools'>
-				<Tools/>
+					<Tools/>
 				</Route>
+				<Route path='/sorting/bubble'>
+				<Bubble/>
+			</Route>
+			<Route path='/sorting/selection'>
+				<Selection/>
+			</Route>
+			<Route path='/sorting/insertion'>
+				<Insertion/>
+			</Route>
+			<Route path='/sorting/merge'>
+				<Merge/>
+			</Route>
+			<Route path='/sorting/quick'>
+				<Quick/>
+			</Route>
+			<Route path='/sorting/shell'>
+				<Shell/>
+			</Route>
 			</Switch>
 	</Grid>
 }
 
-export default App;
+export default Home;
