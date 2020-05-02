@@ -6,7 +6,6 @@ import Graph from './graph';
 import Tools from './tools';
 import Mathematics from './mathematics';
 import DataStructure from './datastructure';
-import routeIndex from '../route';
 import Bubble from './sorting/Bubble';
 import Selection from './sorting/Selection';
 import Insertion from './sorting/Insertion';
@@ -20,30 +19,58 @@ import styled from 'styled-components';
 const Main=styled.div`
 	display:flex;
 	width:100%;
-	height:100%;
+	height:100vh;
+	transition:width 0.4s ease-out;
+	&::-webkit-scrollbar {
+  			width: 0.25em;
+		};	
+	&::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 6px rgba(0, 0, 255, 0.3);
+		};	
+	&::-webkit-scrollbar-thumb {
+			background-color: green;
+		};
 `;
 const SecondaryMain=styled.div`
 	display:flex;
 	flex-wrap:wrap;
+	align-content:flex-start;
 	padding:0.25rem;
-	width:${props=>(props.open? 'calc(100% - 240px)':'100%')};
+	width:${props=>(props.open? 'calc(100% - 320px)':'100%')};
 	transition:width 0.4s ease-out;
+	&::-webkit-scrollbar {
+  			width: 0.25em;
+		};	
+	&::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 6px rgba(0, 0, 255, 0.3);
+		};	
+	&::-webkit-scrollbar-thumb {
+			background-color: green;
+		};
 `;
 const SidenavContainer=styled.div`
-		max-width:220px;
+		max-width:300px;
 		overflow-x:hidden;
 		width:${props=>props.open?'40%':'0px'};
 		transition:width 0.3s ease-out;
-		height:100vh;
+		&::-webkit-scrollbar {
+  			width: 0.25em;
+		};	
+		&::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 6px rgba(0, 0, 255, 0.3);
+		};	
+		&::-webkit-scrollbar-thumb {
+			background-color: green;
+		};
 		`;
+
 function Home(){
-	const [open,setOpen]=React.useState(false);
+	const [open,setOpen]=React.useState(false);	
 	const location=useLocation();
-	
 	return <Grid>
 		<Main>
 			<SidenavContainer open={open}>
-				<SideNav links={routeIndex(location.pathname)} open={open} setOpen={setOpen}/>
+				<SideNav open={open} setOpen={setOpen} pathname={location.pathname}/>
 			</SidenavContainer>
 			<SecondaryMain open={open}>
 				<NavBar open={open} setOpen={setOpen}/>		 	
