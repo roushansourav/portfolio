@@ -1,6 +1,14 @@
 import React,{useState} from 'react';
-import {Grid,Paper,Input,Button} from '@material-ui/core';
+import styled from 'styled-components';
 import {useLocation} from 'react-router-dom';
+
+const Container=styled.div`
+	width:100%;
+	padding:0 1rem;
+`;
+const Paper=styled.div`
+
+`;
 
 function Swap(arr,i,j){
 	let k=arr[i];
@@ -29,18 +37,18 @@ export default function(){
 		arrData=BubbleSort(arrData);
 		setOutput(arrData.map(n=>n.toString()).join(', '))
 	}
-	return (<Grid>
-		{<h1>Bubble Sort</h1>}
+	return (<Container>
+		<h1 style={{textAlign:'center'}}>Bubble Sort</h1>
 		<Paper style={{padding:'2rem'}}>
-			<Grid container justify='center'>
-				<Grid item xs={12} style={{textAlign:'center'}}>
-				<Input style={{width:'20rem'}} placeholder='Enter comma separated value' value={data} onChange={(e)=>setData(e.target.value)}/>
-				<Button variant="outlined" style={{color:'green'}} onClick={(e)=>{hSort(data)}} size='small'>Sort</Button>
-				</Grid>
-				<Grid item xs={12} style={{textAlign:'center'}}>
-				<Input style={{width:'20rem'}} placeholder='Output' value={output} readOnly/>
-				</Grid>
-			</Grid>
+			<Container>
+				<Container item xs={12} style={{textAlign:'center'}}>
+				<input style={{width:'20rem'}} placeholder='Enter comma separated value' value={data} onChange={(e)=>setData(e.target.value)}/>
+				<button variant="outlined" style={{color:'green'}} onClick={(e)=>{hSort(data)}} size='small'>Sort</button>
+				</Container>
+				<Container item xs={12} style={{textAlign:'center'}}>
+				<input style={{width:'20rem'}} placeholder='Output' value={output} readOnly/>
+				</Container>
+			</Container>
 		</Paper>
-	</Grid>);
+	</Container>);
 }

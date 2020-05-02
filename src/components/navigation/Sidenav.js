@@ -6,11 +6,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const SideNavContainer=styled.div`
 	height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
   background-color: #fff;
   overflow-x: hidden;
 	padding-top: 20px;
@@ -19,6 +14,7 @@ const SideNavContainer=styled.div`
 const SLink=styled(Link)`
 	text-decoration:none;
 	color:#008b00;
+	overflow-x:hidden;
 
 `;
 const LinkContainer=styled.div`
@@ -26,21 +22,22 @@ const LinkContainer=styled.div`
 	text-align:left;
 	padding:0.25rem 1.25rem;
 	font-weight:500;
+	overflow-x:hidden;
 `;
 const DrawerIcon=styled.div`
-	position:relative;
-	top:0px;
-	right:-160px;
 	font-size:30px;
 	cursor:pointer;
 	color:#008b00;
-	padding-right:0.25rem;
+	padding-right:2rem;
 
 `;
 const SideNav=function({links=[],open,setOpen}){
 	return (
-	<SideNavContainer>
-		<DrawerIcon onClick={()=>setOpen(!open)}>{!open?<MenuIcon/>:<ArrowBackIcon/>}</DrawerIcon>
+	<SideNavContainer open={open}>
+		<div style={{display:'flex',justifyContent:'flex-end'}}>
+			<DrawerIcon onClick={()=>setOpen(!open)}><ArrowBackIcon/></DrawerIcon>
+		</div>
+		
 		{links.map(l=><LinkContainer key={l.key} ><SLink to={l.key}>{l.label}</SLink></LinkContainer>)}
 	</SideNavContainer>)
 }

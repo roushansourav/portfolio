@@ -15,14 +15,38 @@ import Quick from './sorting/Quick';
 import Shell from './sorting/Shell';
 import SideNav from './navigation/Sidenav';
 import NavBar from './Navbar';
+import styled from 'styled-components';
 
+const Main=styled.div`
+	display:flex;
+	width:100%;
+	height:100%;
+`;
+const SecondaryMain=styled.div`
+	display:flex;
+	flex-wrap:wrap;
+	padding:0.25rem;
+	width:${props=>(props.open? 'calc(100% - 240px)':'100%')};
+	transition:width 0.4s ease-out;
+`;
+const SidenavContainer=styled.div`
+		max-width:220px;
+		overflow-x:hidden;
+		width:${props=>props.open?'40%':'0px'};
+		transition:width 0.3s ease-out;
+		height:100vh;
+		`;
 function Home(){
 	const [open,setOpen]=React.useState(false);
 	const location=useLocation();
-	return <Grid>	
-		<NavBar open={open} setOpen={setOpen}/>	
-		 {open && <SideNav links={routeIndex(location.pathname)} open={open} setOpen={setOpen}/>}	
-		 	
+	
+	return <Grid>
+		<Main>
+			<SidenavContainer open={open}>
+				<SideNav links={routeIndex(location.pathname)} open={open} setOpen={setOpen}/>
+			</SidenavContainer>
+			<SecondaryMain open={open}>
+				<NavBar open={open} setOpen={setOpen}/>		 	
 			<Switch>
 				<Route exact path='/home'>
 					<Redirect to='/'/>
@@ -61,6 +85,9 @@ function Home(){
 				<Shell/>
 			</Route>
 			</Switch>
+			</SecondaryMain>
+		</Main>	
+		
 	</Grid>
 }
 
