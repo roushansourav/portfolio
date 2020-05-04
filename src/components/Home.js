@@ -1,11 +1,6 @@
 import React from 'react';
 import {Grid} from '@material-ui/core';
 import {Route,Switch,Redirect,useLocation} from 'react-router-dom';
-import Sorting from './sorting';
-import Graph from './graph';
-import Tools from './tools';
-import Mathematics from './mathematics';
-import DataStructure from './datastructure';
 import Bubble from './sorting/Bubble';
 import Selection from './sorting/Selection';
 import Insertion from './sorting/Insertion';
@@ -78,22 +73,7 @@ function Home(){
 				<Route exact path='/home'>
 					<Redirect to='/'/>
 				</Route>
-				<Route exact path='/sorting'>
-					<Sorting />
-				</Route>
-				<Route exact path='/graph'>
-					<Graph/>
-				</Route>
-				<Route exact path='/mathematics'>
-					<Mathematics/>
-				</Route>
-				<Route exact path='/datastructures'>
-					<DataStructure/>
-				</Route>
-				<Route exact path ='/tools'>
-					<Tools/>
-				</Route>
-				<Route path='/sorting/bubble'>
+			<Route path='/sorting/bubble'>
 				<Bubble/>
 			</Route>
 			<Route path='/sorting/selection'>
